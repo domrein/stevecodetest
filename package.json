@@ -1,0 +1,11 @@
+{
+  "name": "addsupbang",
+  "version": "1.0.0",
+  "description": "Sample solution for Steven's test",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "author": "Paul Milham",
+  "license": "MIT"
+}
