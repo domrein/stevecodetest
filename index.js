@@ -6,15 +6,14 @@ module.exports = str => {
   }
   // get all series of digits followed by non digits
   const matches = str.match(/\d+[\D]*/g);
+  // must be at least one pair
+  if (matches.length <= 1) {
+    return false;
+  }
 
   // if some aren't followed by 3 exclamations, return false
   const hasBangs = matches.every((m, i) => i === matches.length - 1 || m.replace(/[^!]/g, "").length === 3);
   if (!hasBangs) {
-    return false;
-  }
-
-  // must be at least one pair
-  if (matches.length <= 1) {
     return false;
   }
 
