@@ -5,10 +5,13 @@ module.exports = str => {
     return false;
   }
   // get all series of digits followed by non digits
-  let matches = str.match(/\d+[\D]*/g);
+  const matches = str.match(/\d+[\D]*/g);
 
-  // if it isn't followed by 3 exclamations, we don't care about it (unless it's the last entry)
-  matches = matches.filter((m, i) => i === matches.length - 1 || m.replace(/[^!]/g, "").length === 3);
+  // if some aren't followed by 3 exclamations, return false
+  const hasBangs = matches.every((m, i) => i === matches.length - 1 || m.replace(/[^!]/g, "").length === 3);
+  if (!hasBangs) {
+    return false;
+  }
 
   // must be at least one pair
   if (matches.length <= 1) {
